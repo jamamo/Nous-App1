@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <form method="POST" enctype="multipart/form-data">
+    <label class="upload-label">Upload Referral Form (.docx / .pdf)</label>
+    <input type="file" name="file" accept=".docx,.pdf" required>
+    <button type="submit" class="btn">Triage Referral</button>
+  </form>
+
+  {% if result %}
+    <div class="result">
+      <h3>Triage Summary</h3>
+      <pre>{{ result }}</pre>
+      <a href="{{ url_for('download') }}" class="btn-secondary">Download Report PDF</a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}
